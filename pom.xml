@@ -26,6 +26,7 @@
         <ver.springfox.swagger2>2.9.2</ver.springfox.swagger2>
         <ver.google.guava>26.0-jre</ver.google.guava>
         <ver.lombok>1.16.6</ver.lombok>
+        <ver.hutool>5.5.4</ver.hutool>
     </properties>
 
     <dependencies>
@@ -113,6 +114,13 @@
             <version>${ver.lombok}</version>
         </dependency>
         <!-- lombok end-->
+        <!-- hutool end-->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${ver.hutool}</version>
+        </dependency>
+        <!-- hutool end-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -139,11 +147,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-test</artifactId>
         </dependency>
-        <dependency>
+      <!--  <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
             <version>5.2.5.RELEASE</version>
-        </dependency>
+        </dependency>-->
     </dependencies>
 
     <build>
