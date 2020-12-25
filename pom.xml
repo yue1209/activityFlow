@@ -27,13 +27,14 @@
         <ver.google.guava>26.0-jre</ver.google.guava>
         <ver.lombok>1.16.6</ver.lombok>
         <ver.hutool>5.5.4</ver.hutool>
+        <ver.boot.tkmapper>1.1.7</ver.boot.tkmapper>
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
+         <dependency>
+             <groupId>org.springframework.boot</groupId>
+             <artifactId>spring-boot-starter-data-jpa</artifactId>
+         </dependency>
 
         <dependency>
             <groupId>mysql</groupId>
@@ -74,7 +75,14 @@
             <artifactId>druid-spring-boot-starter</artifactId>
             <version>${ver.boot.druid}</version>
         </dependency>
-        <!--logback druid-->
+        <!--druid end-->
+        <!-- mybatis begin-->
+        <dependency>
+            <groupId>tk.mybatis</groupId>
+            <artifactId>mapper-spring-boot-starter</artifactId>
+            <version>${ver.boot.tkmapper}</version>
+        </dependency>
+        <!--mybatis end-->
         <!-- thymeleaf begin-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -147,11 +155,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-test</artifactId>
         </dependency>
-      <!--  <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-            <version>5.2.5.RELEASE</version>
-        </dependency>-->
+        <!--  <dependency>
+              <groupId>org.springframework</groupId>
+              <artifactId>spring-test</artifactId>
+              <version>5.2.5.RELEASE</version>
+          </dependency>-->
     </dependencies>
 
     <build>

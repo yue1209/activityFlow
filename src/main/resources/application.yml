@@ -52,5 +52,15 @@ spring:
     #thymeleaf关闭缓存
     thymeleaf:
       cache: false
-    jpa:
-      show-sql: true
+#    jpa:
+#      show-sql: true
+#mybatis&&通用Mapper
+mybatis:
+  type-aliases-package: com.activityFlow.entity
+  configuration:
+    default-enum-type-handler: org.apache.ibatis.type.EnumOrdinalTypeHandler
+  #mapper-locations: com.newtv.piper.core.dao.mapper
+mapper:
+  style: normal
+  mappers: com.activityFlow.repository.TKMapper
+  identity: MYSQL

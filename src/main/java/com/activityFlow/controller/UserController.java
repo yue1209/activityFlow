@@ -1,37 +1,55 @@
 package com.activityFlow.controller;
 
-import com.activityFlow.entity.User;
-import com.activityFlow.repository.UserRepository;
+import com.activityFlow.Exception.ErrorCode;
+import com.activityFlow.Exception.MyException;
+import com.activityFlow.dto.UserDto;
+import com.activityFlow.dto.UserSearchDto;
+import com.activityFlow.service.UserService;
+import com.activityFlow.vo.ResponsePageListVo;
+import com.activityFlow.vo.ResponseResultVo;
+import com.activityFlow.vo.UserVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.apache.ibatis.annotations.Update;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+import java.util.Objects;
 
 @RestController
 @Api(tags = "用户相关")
-public class UserController {
+@RequestMapping("/user")
+public class UserController implements BaseCrud<UserDto, UserSearchDto, UserVo> {
 
     @Autowired
-    UserRepository userRepository;
+    private UserService userService;
 
-    @ApiOperation(value = "添加用户", notes = "添加用户", code = 200, produces = "application/json")
-    @PostMapping("/user")
-    public String addUser() {
-        User user = new User();
-        user.setAge(3);
-        userRepository.save(user);
-        return "ok";
+    @Override
+    public ResponsePageListVo<UserVo> selectList(@Valid @RequestBody UserSearchDto userSearchDto) {
+        return null;
     }
 
-    @ApiOperation(value = "修改用户", notes = "添加用户", code = 200, produces = "application/json")
-    @PutMapping("/user/{id}")
-    public String updateUser(@PathVariable("id") Long id) {
-        User user = new User();
-        user.setId(id);
-        user.setAge(7);
-        userRepository.save(user);
-        return "ok";
+    @Override
+    @ApiOperation(value = "查询用户", notes = "查询用户")
+    public ResponseResultVo<UserVo> selectOne(@PathVariable String id) {
+        return userService.selectOne(id);
+    }
+
+    @Override
+    @ApiOperation(value = "添加用户", notes = "添加用户", produces = "application/json")
+    public ResponseResultVo<UserVo> insert(@Valid @RequestBody UserDto insertDto) throws MyException {
+        return userService.insert(insertDto);
+    }
+
+    @Override
+    @ApiOperation(value = "修改用户", notes = "修改用户", produces = "application/json")
+    public ResponseResultVo<UserVo> update(@Valid @RequestBody UserDto updateDto) {
+        return userService.update(updateDto);
+    }
+
+    @Override
+    @ApiOperation(value = "删除用户", notes = "删除用户", code = 200)
+    public ResponseResultVo<UserVo> delete(@PathVariable String id) {
+        return userService.delete(id);
     }
 }
