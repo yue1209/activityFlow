@@ -54,8 +54,8 @@ public class ActivityService {
      * @Date 2020/12/15
      */
     public void startProcess(String key) {
-        //runtimeService.startProcessInstanceByKey(key);
-        runtimeService.startProcessInstanceById(key);
+        runtimeService.startProcessInstanceByKey(key);
+        //runtimeService.startProcessInstanceById(key);
     }
 
     /**

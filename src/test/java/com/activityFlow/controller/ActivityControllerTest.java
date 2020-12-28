@@ -19,17 +19,17 @@ public class ActivityControllerTest extends BaseControllerTest {
 
     @Test
     public void startProcess() throws Exception {
-        activityService.startProcess("11");
+        activityService.startProcess("myProcess_1");
     }
 
     @Test
     public void taskList() throws Exception {
-
+        activityService.taskList("");
     }
 
     @Test
     public void complete() throws Exception {
-
+        activityService.complete("68b87cd16ff445428dcca71b7f445e97");
     }
 
 }
